@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import connectToDB from "./config/connectToDB.js";
 import userRouter from "./routes/userRoutes.js";
+import transactionRouter from "./routes/transactionRoutes.js";
 dotenv.config();
  //Creating server
 const app = express();
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/user', userRouter)
+app.use('/transactions', transactionRouter);
 
 const PORT = process.env.PORT || 5000;
 console.log(process.env.MONGO_URI.toString().replace('<password>', process.env.MONGO_PASSWORD))

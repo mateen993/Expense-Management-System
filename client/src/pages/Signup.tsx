@@ -2,6 +2,8 @@ import { useState,useEffect } from "react";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast'
+
 
 const Signup: React.FC = () => {
   //put in all alerts the toast thing
@@ -22,13 +24,23 @@ const Signup: React.FC = () => {
   const handleSubmit = async (): Promise<void> => {
     setLoading(true);
     if (!(email && password && name)) {
-      alert("Please enter all fields");
+      toast.error("Please Enter all fields", {
+        duration: 3000,
+        position: 'top-center'
+      });
       setLoading(false);
       return;
     }
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     if (!validator.isEmail(email)) {
-      alert("Please enter valid email");
+      toast.error("Invalid Email address", {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          backgroundColor: 'red',
+          color: 'white'
+        }
+      });
       setLoading(false);
       return;
     }
@@ -41,17 +53,30 @@ const Signup: React.FC = () => {
       });
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       localStorage.setItem("token", data.token);
-      alert("Success");
+      toast.success("Registered successfully", {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          backgroundColor: 'red',
+          color: 'white'
+        }
+      });
       setLoading(false);
       navigate("/");
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      alert(error.response.data.message);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
+      toast.error(error.response.data.message,{
+        style: {
+          backgroundColor: 'red',
+          color: 'white'
+        }
+      });
       setLoading(false);
     }
   };
   return (
     <div className="bg-yellow-400 flex justify-center items-center  w-full h-[100vh]">
+      <Toaster />
       <div className="w-[300px] shadow-lg rounded-2xl flex flex-col p-5 bg-slate-200">
         <div className="flex justify-center items-center">
           <img

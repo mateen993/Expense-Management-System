@@ -80,3 +80,7 @@ export const signup = async (req,res) => {
 
 }
 
+// export const getUser = async (req, res) => {
+//     const _id
+// }
+

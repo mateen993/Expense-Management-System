@@ -8,4 +8,19 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   font-family: Poppins;
+  background-color: azure;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  
+  background: #FFBDA2;
+}
+::-webkit-scrollbar-thumb{
+  background: #FFA500;
+}
+::-webkit-scrollbar-track:hover{
+  background: #FFBDA2;
 }

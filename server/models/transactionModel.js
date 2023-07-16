@@ -1,6 +1,6 @@
 import mongoose from "mongoose";    
 
-const TransactionSchema = mongoose.Schema({
+const TransactionSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, "Title is required"],
@@ -23,6 +23,10 @@ const TransactionSchema = mongoose.Schema({
     description: {
         type: String,
         required: [true, "Description is required"],
+    },
+    date: {
+        type: Date,
+        required: [true, "Date is required"]
     }
 }, {
     timeStamps: true,
