@@ -6,8 +6,8 @@ import {
   AiOutlineSetting,
   AiOutlineLogout,
 } from "react-icons/ai";
+import Home from "../components/Dashboard/Home";
 const Dashboard: React.FC = () => {
-    
   const [open, setOpen] = useState<boolean>(true);
 
   return (
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
             </h1>
           </div>{" "}
           <div className="mt-auto flex flex-col items-start justify-start gap-y-4">
-          <div className="inline-flex items-center">
+            <div className="inline-flex items-center">
               <BsFillPersonFill className="text-4xl" />
               <h1
                 className={`text-bold ${
@@ -83,7 +83,9 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="p-3">Home Page</div>
+      <div className="p-3 w-full h-full ">
+        <Home />
+      </div>
     </div>
   );
 };

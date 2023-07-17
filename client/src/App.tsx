@@ -1,7 +1,6 @@
 import Login from './pages/Login'
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import Signup from './pages/Signup';
-import ProtectedRoute from './components/Protected/ProtectedRoute';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 function App() {
